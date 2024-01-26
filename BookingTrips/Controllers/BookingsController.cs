@@ -1,6 +1,7 @@
 ﻿using BookingTrips.Data;
 using BookingTrips.Data.DTOs;
 using BookingTrips.Data.Models;
+using BookingTrips.Data.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -12,41 +13,18 @@ namespace BookingTrips.Controllers
     [ApiController]
     public class BookingsController : ControllerBase
     {
-        private AppDbContext _context;
-        public BookingsController(AppDbContext context)
+        public BookingsService _bookingsService;
+
+        public BookingsController(BookingsService bookingsService)
         {
-            _context = context;
+            _bookingsService = bookingsService;
         }
 
-        [HttpPost("createBooking")]
+        [HttpPost]
         public IActionResult CreateBooking(BookingInformationDTO bookingDTO)
         {
-            var newBooking = new BookingInformation
-            {
-                Name = bookingDTO.Name,
-                Surname = bookingDTO.Surname,
-                BookingDate = bookingDTO.BookingDate,
-                TripName = bookingDTO.TripName,
-                DepartureTime = bookingDTO.DepartureTime,
-                EmailAddress = bookingDTO.EmailAddress,
-                PhoneNumber = bookingDTO.PhoneNumber,
-                NumberOfAdults = bookingDTO.NumberOfAdults,
-                NumberOfKids = bookingDTO.NumberOfKids
-            };
-
-            _context.BookingInformation.Add(newBooking);
-            _context.SaveChanges();
-
-            return Ok(bookingDTO);
+           _bookingsService.CreateBooking(bookingDTO);
+           return Ok();
         }
-
-        [HttpGet("GetBookings")]
-        public IActionResult GetBookings()
-        {
-            var allBookings = _context.BookingInformation.ToList();
-            return Ok(allBookings);
-        }
-
-
     }
 }
