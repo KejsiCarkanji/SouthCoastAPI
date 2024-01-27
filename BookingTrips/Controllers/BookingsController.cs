@@ -24,7 +24,7 @@ namespace BookingTrips.Controllers
         public IActionResult CreateBooking(BookingInformationDTO bookingDTO)
         {
            _bookingsService.CreateBooking(bookingDTO);
-           return Ok();
+           return Ok(bookingDTO);
         }
     }
 }
