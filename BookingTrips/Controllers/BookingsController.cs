@@ -1,11 +1,6 @@
-﻿using BookingTrips.Data;
-using BookingTrips.Data.DTOs;
-using BookingTrips.Data.Models;
+﻿using BookingTrips.Data.DTOs;
 using BookingTrips.Data.Services;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Mail;
 
 namespace BookingTrips.Controllers
 {
@@ -23,8 +18,8 @@ namespace BookingTrips.Controllers
         [HttpPost]
         public IActionResult CreateBooking(BookingInformationDTO bookingDTO)
         {
-           _bookingsService.CreateBooking(bookingDTO);
-           return Ok(bookingDTO);
+            _bookingsService.CreateBooking(bookingDTO);
+            return Ok(bookingDTO);
         }
     }
 }
