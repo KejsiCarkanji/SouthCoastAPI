@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\BookingTrips",
+    "\\BookingTrips\\Controllers",
+    "\\BookingTrips\\Data",
+    "\\BookingTrips\\Data\\DTOs",
+    "\\BookingTrips\\Data\\Models",
+    "\\BookingTrips\\Data\\Services"
+  ],
+  "SelectedNode": "\\BookingTrips.sln",
+  "PreviewInSolutionExplorer": false
+}
