@@ -13,7 +13,7 @@ namespace BookingTrips.Data.Services
 
         }
 
-        public BookingInformation CreateBooking(BookingInformationDTO bookingDTO)
+        public void CreateBooking(BookingInformationDTO bookingDTO)
         {
             var newBooking = new BookingInformation
             {
@@ -29,8 +29,6 @@ namespace BookingTrips.Data.Services
             };
             _context.BookingInformation.Add(newBooking);
             _context.SaveChanges();
-            return newBooking;
-
         }
 
         public List<BookingInformation> GetBookings()
@@ -43,6 +41,21 @@ namespace BookingTrips.Data.Services
             }
 
             return bookings;
+        }
+
+        public void DeleteBooking(int bookingId)
+        {
+            var bookingToRemove = _context.BookingInformation.FirstOrDefault(b => b.ID == bookingId);
+
+            if (bookingToRemove != null)
+            {
+                _context.BookingInformation.Remove(bookingToRemove);
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new InvalidOperationException("Booking not found");
+            }
         }
     }
 }
