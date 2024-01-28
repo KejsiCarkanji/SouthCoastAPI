@@ -30,5 +30,31 @@ namespace BookingTrips.Data.Services
             _context.BookingInformation.Add(newBooking);
             _context.SaveChanges();
         }
+
+        public BookingInformationDTO GetBookingById(int id)
+        {
+            var booking = _context.BookingInformation.FirstOrDefault(n => n.ID == id);
+
+            if (booking == null)
+            {
+                return null; 
+            }
+
+            
+            var bookingDto = new BookingInformationDTO
+            {
+                Name = booking.Name,
+                Surname = booking.Surname,
+                BookingDate = booking.BookingDate,
+                TripName = booking.TripName,
+                DepartureTime = booking.DepartureTime,
+                EmailAddress = booking.EmailAddress,
+                PhoneNumber = booking.PhoneNumber,
+                NumberOfAdults = booking.NumberOfAdults,
+                NumberOfKids = booking.NumberOfKids
+            };
+
+            return bookingDto;
+        }
     }
 }
