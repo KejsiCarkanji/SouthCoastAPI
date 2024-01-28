@@ -6,6 +6,7 @@ namespace BookingTrips.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class BookingsController : ControllerBase
     {
         public BookingsService _bookingsService;

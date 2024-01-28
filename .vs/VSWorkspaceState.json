@@ -1,16 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.github",
     "\\BookingTrips",
-    "\\BookingTrips\\bin",
-    "\\BookingTrips\\bin\\Release",
     "\\BookingTrips\\Controllers",
     "\\BookingTrips\\Data",
     "\\BookingTrips\\Data\\DTOs",
     "\\BookingTrips\\Data\\Models",
     "\\BookingTrips\\Data\\Services"
   ],
-  "SelectedNode": "\\BookingTrips\\Data\\AppDbContext.cs",
+  "SelectedNode": "\\BookingTrips.sln",
   "PreviewInSolutionExplorer": false
 }
