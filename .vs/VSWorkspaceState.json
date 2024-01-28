@@ -8,6 +8,6 @@
     "\\BookingTrips\\Data\\Models",
     "\\BookingTrips\\Data\\Services"
   ],
-  "SelectedNode": "\\BookingTrips.sln",
+  "SelectedNode": "\\BookingTrips\\Controllers\\ContactsController.cs",
   "PreviewInSolutionExplorer": false
 }
