@@ -20,8 +20,8 @@ namespace BookingTrips.Controllers
         [HttpPost]
         public IActionResult CreateBooking(BookingInformationDTO bookingDTO)
         {
-            BookingInformation booking= _bookingsService.CreateBooking(bookingDTO);
-            return Ok(booking.ID);
+            _bookingsService.CreateBooking(bookingDTO);
+            return Ok();
         }
 
         [HttpGet]
@@ -29,6 +29,20 @@ namespace BookingTrips.Controllers
         {
             List<BookingInformation> bookings = _bookingsService.GetBookings();
             return Ok(bookings);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteBooking(int id)
+        {
+            try
+            {
+                _bookingsService.DeleteBooking(id);
+                return Ok("Booking cancelled!");
+            }
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
     }
 }
