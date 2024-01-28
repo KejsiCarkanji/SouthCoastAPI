@@ -13,7 +13,7 @@ namespace BookingTrips.Data.Services
 
         }
 
-        public void CreateBooking(BookingInformationDTO bookingDTO)
+        public BookingInformation CreateBooking(BookingInformationDTO bookingDTO)
         {
             var newBooking = new BookingInformation
             {
@@ -29,32 +29,20 @@ namespace BookingTrips.Data.Services
             };
             _context.BookingInformation.Add(newBooking);
             _context.SaveChanges();
+            return newBooking;
+
         }
 
-        public BookingInformationDTO GetBookingById(int id)
+        public List<BookingInformation> GetBookings()
         {
-            var booking = _context.BookingInformation.FirstOrDefault(n => n.ID == id);
+            var bookings = _context.BookingInformation.ToList();
 
-            if (booking == null)
+            if (bookings == null)
             {
                 return null; 
             }
 
-            
-            var bookingDto = new BookingInformationDTO
-            {
-                Name = booking.Name,
-                Surname = booking.Surname,
-                BookingDate = booking.BookingDate,
-                TripName = booking.TripName,
-                DepartureTime = booking.DepartureTime,
-                EmailAddress = booking.EmailAddress,
-                PhoneNumber = booking.PhoneNumber,
-                NumberOfAdults = booking.NumberOfAdults,
-                NumberOfKids = booking.NumberOfKids
-            };
-
-            return bookingDto;
+            return bookings;
         }
     }
 }
