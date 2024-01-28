@@ -11,6 +11,9 @@ namespace BookingTrips.Data
         }
 
         public DbSet<BookingInformation> BookingInformation { get; set; }
+
+        public DbSet<ContactsInformation> ContactsInformation { get; set; }
+       
     }
 }
 

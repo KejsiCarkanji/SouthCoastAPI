@@ -15,4 +15,16 @@ namespace BookingTrips.Data.Models
         public int NumberOfAdults { get; set; }
         public int? NumberOfKids { get; set; }
     }
+
+   
+
+    public class ContactsInformation
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Query { get; set; }
+    }
+
 }
