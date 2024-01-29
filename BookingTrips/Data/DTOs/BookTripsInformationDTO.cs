@@ -6,6 +6,7 @@ namespace BookingTrips.Data.DTOs
         public string MeetingPoint { get; set; }
         public string WeVisit { get; set; }
         public string Departure { get; set; }
+        public string Duration { get; set; }
         public string Price { get; set; }
     }
 }
