@@ -11,7 +11,7 @@ namespace BookingTrips.Controllers
     public class BookingsController : ControllerBase
     {
         public BookingsService _bookingsService;
-
+ 
         public BookingsController(BookingsService bookingsService)
         {
             _bookingsService = bookingsService; 
@@ -20,6 +20,15 @@ namespace BookingTrips.Controllers
         [HttpPost]
         public IActionResult CreateBooking(BookingInformationDTO bookingDTO)
         {
+            if (!ModelState.IsValid)
+            {
+                Console.WriteLine("Validation Errors:");
+                foreach (var modelError in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine(modelError.ErrorMessage);
+                }
+                return BadRequest(ModelState);
+            }
             _bookingsService.CreateBooking(bookingDTO);
             return Ok();
         }
