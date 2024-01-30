@@ -1,5 +1,6 @@
 ﻿using BookingTrips.Data.DTOs;
 using BookingTrips.Data.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookingTrips.Data.Services
 {
@@ -18,7 +19,7 @@ namespace BookingTrips.Data.Services
             var newBooking = new BookingInformation
             {
                 Name = bookingDTO.Name,
-                Surname = bookingDTO.Surname,
+                Surname = bookingDTO.Surname, 
                 BookingDate = bookingDTO.BookingDate,
                 TripName = bookingDTO.TripName,
                 DepartureTime = bookingDTO.DepartureTime,
